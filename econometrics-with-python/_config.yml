@@ -1,0 +1,6 @@
+# Book settings
+title: Introduction to Econometrics with Python
+author: Harry Jiannan Wang (harrywang.me)
+latex:
+  latex_documents:
+    targetname: book.tex

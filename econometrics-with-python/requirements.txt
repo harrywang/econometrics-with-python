@@ -1,0 +1,6 @@
+ghp-import
+jupyter
+jupyter-book
+matplotlib
+numpy
+pandas

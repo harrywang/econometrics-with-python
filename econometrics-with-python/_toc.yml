@@ -1,0 +1,6 @@
+- file: ch01/intro
+
+- file: ch02/ch02.ipynb
+  sections:
+    - file: ch02/ch02.1.ipynb
+    - file: notebooks.ipynb
