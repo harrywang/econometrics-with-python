@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About &#8212; Introduction to Econometrics with Python</title>
+    <title>2.2 Random Sampling and the Distribution of Sample Averages &#8212; Introduction to Econometrics with Python</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -35,7 +35,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Probability Theory" href="../ch02/ch02.html" />
+    <link rel="next" title="3. A Review of Statistics" href="../ch03/ch03.html" />
+    <link rel="prev" title="2.1 Random Variables and Probability Distributions" href="ch02_1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -68,16 +69,28 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="#">
+  <a class="reference internal" href="../ch01/intro.html">
    About
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch02/ch02.html">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="ch02.html">
    2. Probability Theory
   </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch02_1.html">
+     2.1 Random Variables and Probability Distributions
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.2 Random Sampling and the Distribution of Sample Averages
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch03/ch03.html">
@@ -126,9 +139,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/ch01/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/ch02/ch02_2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -144,6 +157,28 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ch02/ch02_2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/ch02/ch02_2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
 
     </div>
 
@@ -162,19 +197,9 @@
         
               <div>
                 
-  <div class="section" id="about">
-<h1>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h1>
-<p>This is the Python version of <a class="reference external" href="https://www.econometrics-with-r.org/">“Introduction to Econometrics with R”</a> by Christoph Hanck, Martin Arnold, Alexander Gerber, and Martin Schmelzer. Many thanks to the authors.</p>
-<p>I exactly map the structure of the book and only provide the corresponding Python code with minimal instructions if ever needed. Please refer to the original book for the content.</p>
-<p>To run the code via the virtual environment, you can clone this <a class="reference external" href="https://github.com/harrywang/econometrics-with-python">book’s repo</a>, switch to the root of the repo folder, and do the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
-<span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">econometrics</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">python</span><span class="o">/</span><span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> 
-</pre></div>
-</div>
-<p>then you can open the notebooks by running <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> or you can open <a class="reference external" href="https://code.visualstudio.com/">VSCode</a> by running <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">.</span></code> and open the notebooks inside VSCode using the virtual environment created above.</p>
-<div class="toctree-wrapper compound">
-</div>
+  <div class="section" id="random-sampling-and-the-distribution-of-sample-averages">
+<h1>2.2 Random Sampling and the Distribution of Sample Averages<a class="headerlink" href="#random-sampling-and-the-distribution-of-sample-averages" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.econometrics-with-r.org/2-2-RSATDOSA.html">Book Link</a></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -189,13 +214,13 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
-            path: "./ch01"
+            kernelName: "python_defaultSpec_1599792776104",
+            path: "./ch02"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'python_defaultSpec_1599792776104'</script>
 
               </div>
               
@@ -205,7 +230,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="../ch02/ch02.html" title="next page">2. Probability Theory</a>
+    <a class='left-prev' id="prev-link" href="ch02_1.html" title="previous page">2.1 Random Variables and Probability Distributions</a>
+    <a class='right-next' id="next-link" href="../ch03/ch03.html" title="next page">3. A Review of Statistics</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
