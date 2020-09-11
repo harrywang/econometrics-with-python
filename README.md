@@ -37,4 +37,6 @@ then you can open the notebooks using `jupyter notebook` or VSCode `code .`
 
 To build the book: `jupyter-book build econometrics-with-python` to generate the `_build` folder with HTML version of the book.
 
+If you want a full rebuild without page caching, use  or `jupyter-book build --all econometrics-with-python`
+
 Run `ghp-import -n -p -f econometrics-with-python/_build/html` at the root folder to push the HTML files to the `gh-pages` branch to publish the book, which can be accessed at http://harrywang.me/econometrics-with-python

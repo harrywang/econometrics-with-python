@@ -9,6 +9,6 @@ We will import the required Python packages in each individual notebook.
 :titlesonly:
 
 
-ch02.1.ipynb
-../notebooks.ipynb
+ch02_1.ipynb
+ch02_2.ipynb
 ```
