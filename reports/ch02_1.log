@@ -17,21 +17,18 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# the probability of observing 4, 5, 6, 7 successes
-sum_p = 0
-for k in np.arange(4, 8):
-    sum_p += binom.pmf(k, 10, 0.5)
-print(sum_p)
+# Bernoulli Trials
+x = random.choice(['H', 'T'])
+print(x)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-7-45148c1dc764>[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0msum_p[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;32mfor[0m [0mk[0m [0;32min[0m [0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0;36m4[0m[0;34m,[0m [0;36m8[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 4[0;31m     [0msum_p[0m [0;34m+=[0m [0mbinom[0m[0;34m.[0m[0mpmf[0m[0;34m([0m[0mk[0m[0;34m,[0m [0;36m10[0m[0;34m,[0m [0;36m0.5[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      5[0m [0mprint[0m[0;34m([0m[0msum_p[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-5-f4f43aaf91ab>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Bernoulli Trials[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mx[0m [0;34m=[0m [0mrandom[0m[0;34m.[0m[0mchoice[0m[0;34m([0m[0;34m[[0m[0;34m'H'[0m[0;34m,[0m [0;34m'T'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mprint[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mNameError[0m: name 'binom' is not defined
-NameError: name 'binom' is not defined
+[0;31mNameError[0m: name 'random' is not defined
+NameError: name 'random' is not defined
 
