@@ -211,7 +211,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3]
 </pre></div>
 </div>
 </div>
@@ -275,7 +275,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>H
 </pre></div>
 </div>
 </div>
@@ -285,27 +285,29 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the probability of the binomial distribution given the parameters </span>
 <span class="c1"># k (how many head), n (number of tosses), probability (0.5 for head)</span>
 <span class="c1">#  https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html</span>
+<span class="c1"># http://web.stanford.edu/class/archive/cs/cs109/cs109.1192/handouts/pythonForProbability.html</span>
 
 <span class="c1"># the probability of observing 5 successes</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> 
+<span class="n">X</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="c1"># Declare X to be a binomial random variable</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>          <span class="c1"># P(X = 5)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>          <span class="c1"># P(X &lt;= 4)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>          <span class="c1"># E[X]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>           <span class="c1"># Var(X)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>           <span class="c1"># Std(X)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">rvs</span><span class="p">())</span>           <span class="c1"># Get a random sample from X</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>         <span class="c1"># Get 10 random samples form X</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.24609375000000025
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 4, 5])
+0.3769531250000001
+5.0
+2.5
+1.5811388300841898
+3
+[5 4 6 6 4 6 5 3 5 5]
 </pre></div>
 </div>
 </div>
@@ -315,8 +317,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the probability of observing 4, 5, 6, 7 successes</span>
 <span class="n">sum_p</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
-    <span class="n">sum_p</span> <span class="o">+=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-
+    <span class="n">sum_p</span> <span class="o">+=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sum_p</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -329,11 +330,28 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># another way</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="c1"># P(X &lt;= 7)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># P(X &lt;= 3)</span>
+
+<span class="c1"># the probability of observing 4, 5, 6, 7 successes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7734375
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualize the probability distribution function of k</span>
 
 <span class="n">p_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
-    <span class="n">p_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">p_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 
